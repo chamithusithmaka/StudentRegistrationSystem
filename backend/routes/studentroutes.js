@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import Student from '../models/student.js';
 import dotenv from 'dotenv';
-import nodemailer from 'nodemailer';
+
 
 dotenv.config();
 const router = express.Router();
@@ -64,6 +64,26 @@ router.post('/login', async (req, res) => {
         const token = student.generateAuthToken();
         res.json({ token, message: 'Login successful' });
 
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+// Route to get a specific student by ID
+router.get('/:id', async (req, res) => {
+    const { id } = req.params; // Extract the student ID from the request parameters
+
+    try {
+        // Find student by ID
+        const student = await Student.findById(id);
+
+        if (!student) {
+            return res.status(404).json({ message: 'Student not found' });
+        }
+
+        // Return student data
+        res.status(200).json(student);
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Server error' });

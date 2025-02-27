@@ -2,6 +2,7 @@ import express from 'express'; // Import express using ES modules
 import dotenv from 'dotenv'; // Import dotenv using ES modules
 import connectDB from './config/db.js'; // Import the connectDB function
 import studentRoute from './routes/studentroutes.js'; // Import student route
+import teacherRoutes from './routes/teacherRoutes.js';
 
 dotenv.config(); // Load environment variables
 
@@ -15,6 +16,7 @@ connectDB();
 
 // Use student routes (this assumes you have set up the routes in the 'studentroutes' file)
 app.use('/students', studentRoute);
+app.use('/teacher',teacherRoutes);
 
 // Server listening
 const PORT = process.env.PORT || 5000;

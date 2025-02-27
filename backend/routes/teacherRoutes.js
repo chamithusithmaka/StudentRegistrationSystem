@@ -3,6 +3,8 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import Teacher from '../models/teacher.js';
+import Student from '../models/student.js';
+import Marks from '../models/subjects.js';
 
 dotenv.config();
 const router = express.Router();
@@ -116,5 +118,25 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 });
+
+// Route to fetch a student's marks by studentId
+router.get('/studentmMarks/:studentId', async (req, res) => {
+    try {
+      const { studentId } = req.params;
+      
+      // Fetch marks for the student
+      const studentMarks = await Marks.find({ studentId }).exec();
+  
+      if (!studentMarks) {
+        return res.status(404).json({ message: 'Marks not found for the student' });
+      }
+  
+      res.status(200).json(studentMarks);
+    } catch (error) {
+      console.error('Error fetching student marks:', error);
+      res.status(500).json({ message: 'Server error' });
+    }
+  });
+  
 
 export default router;

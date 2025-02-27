@@ -3,10 +3,15 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import Student from '../models/student.js';
 import dotenv from 'dotenv';
+import multer from 'multer';
 
 
 dotenv.config();
 const router = express.Router();
+
+// Set up Multer storage
+const storage = multer.memoryStorage(); // Store images in memory
+const upload = multer({ storage: storage });
 
 // Setup nodemailer for sending emails
 
@@ -62,13 +67,20 @@ router.post('/login', async (req, res) => {
 
         // Generate JWT Token
         const token = student.generateAuthToken();
-        res.json({ token, message: 'Login successful' });
+
+        // ✅ Include studentId in the response
+        res.json({
+            token,
+            studentId: student._id, // Send student ID for profile fetching
+            message: 'Login successful'
+        });
 
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Server error' });
     }
 });
+
 
 // Route to get a specific student by ID
 router.get('/:id', async (req, res) => {
@@ -143,4 +155,12 @@ router.delete('/deteStudent/:id', async (req, res) => {
     }
 });
 
+router.get('/', async (req, res) => {
+    try {
+        const students = await Student.find(); // Fetch all students
+        res.status(200).json(students);
+    } catch (error) {
+        res.status(500).json({ message: 'Server error', error: error.message });
+    }
+});
 export default router;

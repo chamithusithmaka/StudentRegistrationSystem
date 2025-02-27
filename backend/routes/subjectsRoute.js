@@ -36,7 +36,7 @@ router.post('/add/:studentId/:year/:term', verifyToken, async (req, res) => {
   
 
 // Route to get marks by student ID (http://localhost:5000/marks/:studentID)
-router.get('/:studentId', verifyToken, async (req, res) => {
+router.get('/:studentId', async (req, res) => {
   try {
     const marks = await Marks.find({ studentId: req.params.studentId });
     

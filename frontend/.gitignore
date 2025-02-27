@@ -1,23 +1,62 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-error.log
+pnpm-debug.log
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# production
-/build
-
-# misc
-.DS_Store
+# Environment variables
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-npm-debug.log*
+# Build outputs
+dist/
+build/
+.vite/
+.next/
+out/
+.svelte-kit/
+
+# Editor settings and logs
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Lint and cache files
+.eslintcache
+.stylelintcache
+
+# Logs
+logs/
+*.log
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+
+# Testing files
+coverage/
+*.lcov
+
+# TypeScript
+*.tsbuildinfo
+
+# Storybook
+.storybook/
+storybook-static/
+
+# Firebase
+.firebase/
+.firebaserc
+
+# Misc
+*.bak
+*.backup

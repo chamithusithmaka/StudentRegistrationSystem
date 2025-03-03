@@ -1,0 +1,189 @@
+/* General Profile Container */
+.prof-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.prof-container:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Left Profile Picture Container */
+.prof-left-card {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.prof-left-card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.prof-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #f1f1f1;
+    transition: all 0.3s ease;
+}
+
+.prof-image:hover {
+    transform: scale(1.1);
+}
+
+.prof-no-picture {
+    font-size: 16px;
+    color: #999;
+    text-align: center;
+}
+
+.prof-file-upload {
+    margin-top: 10px;
+    display: block;
+    font-size: 14px;
+}
+
+.prof-delete-btn {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #ff4747;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.prof-delete-btn:hover {
+    background-color: #e63946;
+}
+
+.prof-action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Right Profile Details Container */
+.prof-right-card {
+    width: 65%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.prof-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.prof-detail {
+    font-size: 16px;
+    color: #666;
+    margin: 10px 0;
+}
+
+.prof-input-field {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border 0.3s ease;
+}
+
+.prof-input-field:focus {
+    border-color: #007bff;
+}
+
+.prof-edit-btn, .prof-update-btn, .prof-cancel-btn, .prof-delete-btn {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.prof-edit-btn:hover,
+.prof-update-btn:hover,
+.prof-cancel-btn:hover,
+.prof-delete-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Button Styling */
+.prof-buttons-container {
+    margin-top: 20px;
+}
+
+.prof-buttons-container button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.prof-buttons-container button:hover {
+    background-color: #45a049;
+}
+
+.prof-buttons-container .prof-view-btn {
+    background-color: #2196F3;
+}
+
+.prof-buttons-container .prof-view-btn:hover {
+    background-color: #0b79d0;
+}
+
+/* Animations for Buttons */
+.prof-edit-btn, .prof-update-btn, .prof-cancel-btn {
+    transform: scale(1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.prof-edit-btn:hover, .prof-update-btn:hover, .prof-cancel-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .prof-container {
+        flex-direction: column;
+    }
+
+    .prof-left-card, .prof-right-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .prof-image {
+        width: 120px;
+        height: 120px;
+    }
+}

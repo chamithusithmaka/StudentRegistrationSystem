@@ -1,8 +1,9 @@
 import jwt from 'jsonwebtoken';
 
 const verifyToken = (req, res, next) => {
+  console.log("Token from client:", token); // Log token to debug
   const token = req.header('Authorization')?.replace('Bearer ', '');
-
+  console.log("Token from client:", token); // Log token to debug
   if (!token) {
     return res.status(401).json({ message: 'No token, authorization denied' });
   }

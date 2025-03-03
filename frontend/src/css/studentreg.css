@@ -1,0 +1,91 @@
+/* Container for the registration form */
+.reg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: #f0f4f8;
+    min-height: 100vh;
+    flex-wrap: wrap;
+  }
+  
+  /* Form Section */
+  .reg-form-container {
+    width: 100%;
+    max-width: 600px; /* Ensure it's responsive */
+    background: #fff;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .reg-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  .reg-error,
+  .reg-success {
+    color: #e74c3c;
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  .reg-input-group {
+    margin-bottom: 1.2rem;
+  }
+  
+  .reg-label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+  
+  .reg-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .reg-input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .reg-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .reg-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .reg-link {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  .reg-link-text {
+    color: #007bff;
+    cursor: pointer;
+  }
+  
+  .reg-link-text:hover {
+    text-decoration: underline;
+  }
+  

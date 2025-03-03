@@ -1,0 +1,96 @@
+/* Container for the login form */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #f0f4f8;
+    min-height: 100vh;
+  }
+  
+  /* Login Form Title */
+  .login-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Error message */
+  .login-error {
+    color: #e74c3c;
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  /* Form container */
+  .login-form {
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  /* Input group (label + input) */
+  .login-input-group {
+    margin-bottom: 1.2rem;
+  }
+  
+  /* Labels for inputs */
+  .login-label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+  
+  /* Input fields */
+  .login-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .login-input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Submit button */
+  .login-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Sign-up link */
+  .login-link {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  .login-link-text {
+    color: #007bff;
+    cursor: pointer;
+  }
+  
+  .login-link-text:hover {
+    text-decoration: underline;
+  }
+  

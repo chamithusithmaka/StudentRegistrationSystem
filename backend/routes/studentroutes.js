@@ -68,7 +68,7 @@ router.post('/login', async (req, res) => {
         // Generate JWT Token
         const token = student.generateAuthToken();
 
-        // ✅ Include studentId in the response
+        // Include studentId in the response
         res.json({
             token,
             studentId: student._id, // Send student ID for profile fetching

@@ -38,19 +38,36 @@ const Login = () => {
 
     return (
         <div className="login-container">
-            <h2>Login</h2>
-            {error && <p className="error-message">{error}</p>}
-            <form onSubmit={handleLogin}>
-                <label>Email:</label>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                
-                <label>Password:</label>
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                
-                <button type="submit">Login</button>
+            <h2 className="login-title">Login</h2>
+            {error && <p className="login-error">{error}</p>}
+            <form onSubmit={handleLogin} className="login-form">
+                <div className="login-input-group">
+                <label className="login-label">Email:</label>
+                <input 
+                    type="email" 
+                    value={email} 
+                    onChange={(e) => setEmail(e.target.value)} 
+                    required 
+                    className="login-input"
+                />
+                </div>
+
+                <div className="login-input-group">
+                <label className="login-label">Password:</label>
+                <input 
+                    type="password" 
+                    value={password} 
+                    onChange={(e) => setPassword(e.target.value)} 
+                    required 
+                    className="login-input"
+                />
+                </div>
+
+                <button type="submit" className="login-btn">Login</button>
             </form>
-            <p>Don't have an account? <a href="/register">Sign up</a></p>
-        </div>
+            <p className="login-link">Don't have an account? <a href="/register" className="login-link-text">Sign up</a></p>
+            </div>
+
     );
 };
 

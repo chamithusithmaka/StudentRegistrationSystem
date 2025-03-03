@@ -9,6 +9,9 @@ import TeacherSignUp from './pages/Teacher/TeacherSignup';
 import TeacherDashboard from './pages/Teacher/TeacherDashboard';
 import StudentDetails from './pages/Teacher/StudentDetails';
 import AcademicInformation from './pages/Teacher/AcademicInfo';
+import StudentMarks from './pages/StudentMarks';
+import AddMarks from './pages/AddMarks';
+import UpdateMarks from './pages/UpdateMarks';
 
 
 function App() {
@@ -28,6 +31,9 @@ function App() {
           <Route path="/dashboard" element={<TeacherDashboard />} />
           <Route path="/student/:id" element={<StudentDetails />} />
           <Route path="/academicInfo/:id" element={<AcademicInformation />} />
+          <Route path="/myMarks/:id" element={<StudentMarks />} />
+          <Route path="/add-marks/:id" element={<AddMarks />} />
+          <Route path="/update-mark/:id" element={<UpdateMarks />} />
         </Routes>
         
       </div>

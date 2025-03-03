@@ -3,12 +3,13 @@ import { useNavigate, useParams } from 'react-router-dom';
 import '../css/profile.css';
 
 const StudentProfile = () => {
-    const { id } = useParams();
     const navigate = useNavigate();
     const [student, setStudent] = useState(null);
     const [error, setError] = useState('');
     const studentId = localStorage.getItem('studentId');
     const token = localStorage.getItem('token');
+
+    console.log(token);
 
     const [formData, setFormData] = useState({
         firstName: '',
@@ -202,71 +203,82 @@ const StudentProfile = () => {
     if (!student) return <p>Loading...</p>;
 
     return (
-        <div className="profile-container">
-            <h2 className="profile-title">Student Profile</h2>
-            <p className="profile-detail"><strong>Name:</strong> 
+        <div className="prof-container">
+            {/* Left Profile Card */}
+            <div className="prof-left-card">
+                <h2 className="prof-title">Student Profile</h2>
+                <p className="prof-detail"><strong>Profile Picture:</strong></p>
+                {student.profilePicture ? (
+                <img src={`data:image/jpeg;base64,${student.profilePicture}`} alt="Profile" className="prof-image" />
+                ) : (
+                <p className="prof-no-picture">No profile picture uploaded.</p>
+                )}
+                <input type="file" onChange={handleProfilePictureUpload} className="prof-file-upload" />
+                <button onClick={handleDeleteProfilePicture} className="prof-delete-btn">Delete Profile Picture</button>
+                <p className="prof-detail">
+                <strong>Name:</strong> 
                 {isEditing ? 
-                    <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} className="input-field" /> 
+                    <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} className="prof-input-field" /> 
                     : student.firstName} 
                 {isEditing ? 
-                    <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} className="input-field" /> 
+                    <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} className="prof-input-field" /> 
                     : student.lastName}
-            </p>
-            <p className="profile-detail"><strong>Email:</strong> 
+                </p>
+                <p className="prof-detail"><strong>Email:</strong> 
                 {isEditing ? 
-                    <input type="email" name="email" value={formData.email} onChange={handleChange} className="input-field" /> 
+                    <input type="email" name="email" value={formData.email} onChange={handleChange} className="prof-input-field" /> 
                     : student.email}
-            </p>
-            <p className="profile-detail"><strong>Age:</strong> 
+                </p>
+                <p className="prof-detail"><strong>Age:</strong> 
                 {isEditing ? 
-                    <input type="number" name="age" value={formData.age} onChange={handleChange} className="input-field" /> 
+                    <input type="number" name="age" value={formData.age} onChange={handleChange} className="prof-input-field" /> 
                     : student.age}
-            </p>
-            <p className="profile-detail"><strong>Address:</strong> 
+                </p>
+                <p className="prof-detail"><strong>Address:</strong> 
                 {isEditing ? 
-                    <input type="text" name="address" value={formData.address} onChange={handleChange} className="input-field" /> 
+                    <input type="text" name="address" value={formData.address} onChange={handleChange} className="prof-input-field" /> 
                     : student.address}
-            </p>
-            <p className="profile-detail"><strong>Grade:</strong> 
+                </p>
+                <p className="prof-detail"><strong>Grade:</strong> 
                 {isEditing ? 
-                    <input type="text" name="grade" value={formData.grade} onChange={handleChange} className="input-field" /> 
+                    <input type="text" name="grade" value={formData.grade} onChange={handleChange} className="prof-input-field" /> 
                     : student.grade}
-            </p>
-            <p className="profile-detail"><strong>Mobile Number:</strong> 
+                </p>
+                <p className="prof-detail"><strong>Mobile Number:</strong> 
                 {isEditing ? 
-                    <input type="text" name="mobileNumber" value={formData.mobileNumber} onChange={handleChange} className="input-field" /> 
+                    <input type="text" name="mobileNumber" value={formData.mobileNumber} onChange={handleChange} className="prof-input-field" /> 
                     : student.mobileNumber}
-            </p>
-
-            <p className="profile-detail"><strong>Profile Picture:</strong></p>
-            {student.profilePicture ? (
-                <img src={`data:image/jpeg;base64,${student.profilePicture}`} alt="Profile" className="profile-image" />
-            ) : (
-                <p className="no-picture">No profile picture uploaded.</p>
-            )}
-            <input type="file" onChange={handleProfilePictureUpload} className="file-upload" />
-            <button onClick={handleDeleteProfilePicture} className="delete-button">Delete Profile Picture</button>
-
-            {isEditing ? (
-                <div className="action-buttons">
-                    <button onClick={handleUpdate} className="update-button">Update Profile</button>
-                    <button onClick={() => setIsEditing(false)} className="cancel-button">Cancel</button>
-                </div>
-            ) : (
-                <div className="action-buttons">
-                    <button onClick={() => setIsEditing(true)} className="edit-button">Edit Profile</button>
-                    <button onClick={handleDelete} className="delete-button">Delete Profile</button>
-                </div>
+                </p>
 
                 
-            )}
-            <button 
-                    className="bg-blue-500 text-white px-3 py-1 rounded ml-2 hover:bg-blue-700"
-                    onClick={() => navigate(`/academicInfo/${id}`)}
+            </div>
+
+            {/* Right Profile Card */}
+            <div className="prof-right-card">
+                {isEditing ? (
+                <div className="prof-action-buttons">
+                    <button onClick={handleUpdate} className="prof-update-btn">Update Profile</button>
+                    <button onClick={() => setIsEditing(false)} className="prof-cancel-btn">Cancel</button>
+                </div>
+                ) : (
+                <div className="prof-action-buttons">
+                    <button onClick={() => setIsEditing(true)} className="prof-edit-btn">Edit Profile</button>
+                    <button onClick={handleDelete} className="prof-delete-btn">Delete Profile</button>
+                </div>
+                )}
+
+                {/* View Academic Information Button */}
+                <div className="prof-buttons-container">
+                <button 
+                    className="prof-view-btn"
+                    onClick={() => navigate(`/myMarks/${studentId}`)}
                 >
                     View Academic Information
                 </button>
-        </div>
+                </div>
+            </div>
+            </div>
+
     );
 };
 

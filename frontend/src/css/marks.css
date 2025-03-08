@@ -1,0 +1,111 @@
+
+.marks-back-btn {
+    background-color: #ef4444;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  .marks-back-btn:hover {
+    background-color: #dc2626;
+  }
+  
+
+/* Marks Container */
+.marks-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Marks Title */
+.marks-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* No Info Text */
+.marks-no-info {
+    font-size: 1.25rem;
+    color: gray;
+}
+
+/* Marks Card */
+.marks-card {
+    margin-bottom: 1rem;
+    padding: 20px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+}
+
+/* Year and Term Header */
+.marks-year-term {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Grid Layout */
+.marks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Actions Section */
+.marks-actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Update Button */
+.marks-update-btn {
+    padding: 10px 20px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.marks-update-btn:hover {
+    background-color: #2563eb;
+}
+
+/* Delete Button */
+.marks-delete-btn {
+    padding: 10px 20px;
+    background-color: #ef4444;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.marks-delete-btn:hover {
+    background-color: #dc2626;
+}
+
+/* Add Marks Button */
+.marks-add-btn {
+    padding: 12px 24px;
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.marks-add-btn:hover {
+    background-color: #2563eb;
+}

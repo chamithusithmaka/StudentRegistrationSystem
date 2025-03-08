@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import '../css/updateMarks.css'; 
 
 const UpdateMarks = () => {
   const { id } = useParams();
@@ -56,11 +57,11 @@ const UpdateMarks = () => {
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Update Marks</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block text-lg font-medium mb-2">Mathematics:</label>
+    <div className="up-container">
+      <h1 className="up-title">Update Marks</h1>
+      <form onSubmit={handleSubmit} className="up-form">
+        <div className="up-form-group">
+          <label className="up-label">Mathematics:</label>
           <input
             type="number"
             name="mathematics"
@@ -68,12 +69,12 @@ const UpdateMarks = () => {
             onChange={handleChange}
             min="0"
             max="100"
-            className="w-full p-2 border border-gray-300 rounded-md"
+            className="up-input"
           />
         </div>
 
-        <div>
-          <label className="block text-lg font-medium mb-2">Science:</label>
+        <div className="up-form-group">
+          <label className="up-label">Science:</label>
           <input
             type="number"
             name="science"
@@ -81,12 +82,12 @@ const UpdateMarks = () => {
             onChange={handleChange}
             min="0"
             max="100"
-            className="w-full p-2 border border-gray-300 rounded-md"
+            className="up-input"
           />
         </div>
 
-        <div>
-          <label className="block text-lg font-medium mb-2">History:</label>
+        <div className="up-form-group">
+          <label className="up-label">History:</label>
           <input
             type="number"
             name="history"
@@ -94,12 +95,12 @@ const UpdateMarks = () => {
             onChange={handleChange}
             min="0"
             max="100"
-            className="w-full p-2 border border-gray-300 rounded-md"
+            className="up-input"
           />
         </div>
 
-        <div>
-          <label className="block text-lg font-medium mb-2">Buddhism:</label>
+        <div className="up-form-group">
+          <label className="up-label">Buddhism:</label>
           <input
             type="number"
             name="Buddhism"
@@ -107,12 +108,12 @@ const UpdateMarks = () => {
             onChange={handleChange}
             min="0"
             max="100"
-            className="w-full p-2 border border-gray-300 rounded-md"
+            className="up-input"
           />
         </div>
 
-        <div>
-          <label className="block text-lg font-medium mb-2">Sinhala:</label>
+        <div className="up-form-group">
+          <label className="up-label">Sinhala:</label>
           <input
             type="number"
             name="Sinhala"
@@ -120,12 +121,12 @@ const UpdateMarks = () => {
             onChange={handleChange}
             min="0"
             max="100"
-            className="w-full p-2 border border-gray-300 rounded-md"
+            className="up-input"
           />
         </div>
 
-        <div>
-          <label className="block text-lg font-medium mb-2">English:</label>
+        <div className="up-form-group">
+          <label className="up-label">English:</label>
           <input
             type="number"
             name="english"
@@ -133,18 +134,18 @@ const UpdateMarks = () => {
             onChange={handleChange}
             min="0"
             max="100"
-            className="w-full p-2 border border-gray-300 rounded-md"
+            className="up-input"
           />
         </div>
 
-        <div>
-          <label className="block text-lg font-medium mb-2">First Category Subject:</label>
+        <div className="up-form-group">
+          <label className="up-label">First Category Subject:</label>
           <input
             type="text"
             name="firstCategorySubject.subjectName"
             value={marks.marks.firstCategorySubject.subjectName || ''}
             onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded-md"
+            className="up-input"
           />
           <input
             type="number"
@@ -153,18 +154,18 @@ const UpdateMarks = () => {
             onChange={handleChange}
             min="0"
             max="100"
-            className="w-full p-2 border border-gray-300 rounded-md mt-2"
+            className="up-input"
           />
         </div>
 
-        <div>
-          <label className="block text-lg font-medium mb-2">Second Category Subject:</label>
+        <div className="up-form-group">
+          <label className="up-label">Second Category Subject:</label>
           <input
             type="text"
             name="secondCategorySubject.subjectName"
             value={marks.marks.secondCategorySubject.subjectName || ''}
             onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded-md"
+            className="up-input"
           />
           <input
             type="number"
@@ -173,18 +174,18 @@ const UpdateMarks = () => {
             onChange={handleChange}
             min="0"
             max="100"
-            className="w-full p-2 border border-gray-300 rounded-md mt-2"
+            className="up-input"
           />
         </div>
 
-        <div>
-          <label className="block text-lg font-medium mb-2">Third Category Subject:</label>
+        <div className="up-form-group">
+          <label className="up-label">Third Category Subject:</label>
           <input
             type="text"
             name="thirdCategorySubject.subjectName"
             value={marks.marks.thirdCategorySubject.subjectName || ''}
             onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded-md"
+            className="up-input"
           />
           <input
             type="number"
@@ -193,27 +194,17 @@ const UpdateMarks = () => {
             onChange={handleChange}
             min="0"
             max="100"
-            className="w-full p-2 border border-gray-300 rounded-md mt-2"
+            className="up-input"
           />
         </div>
 
-        <div className="mt-4 flex justify-between">
-          <button
-            type="submit"
-            className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-          >
-            Update Marks
-          </button>
-          <button
-            type="button"
-            onClick={() => navigate(`/myMarks/${marks.studentId}`)}
-            className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600"
-          >
-            Cancel
-          </button>
+        <div className="up-button-group">
+          <button type="submit" className="up-btn up-btn-update">Update Marks</button>
+          <button type="button" onClick={() => navigate(`/myMarks/${marks.studentId}`)} className="up-btn up-btn-cancel">Cancel</button>
         </div>
       </form>
     </div>
+
   );
 };
 

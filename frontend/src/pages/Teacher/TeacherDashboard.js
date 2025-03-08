@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate  } from 'react-router-dom'; // Import useNavigate
 import axios from 'axios';
+import '../../css/dashboard.css'
 
 function TeacherDashboard() {
     const [students, setStudents] = useState([]);
@@ -25,33 +26,37 @@ function TeacherDashboard() {
     };
 
     return (
-        <div className="max-w-4xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">Teacher Dashboard - Students</h2>
-            {error && <p className="text-red-500">{error}</p>}
-            <table className="w-full border-collapse border border-gray-300">
+        <div className="dash-main">
+            <button className="logout" onClick={() => navigate('/login')}>
+                Logout
+            </button>
+        <div className="teacher-dashboard">
+            <h2 className="teacher-dashboard-title">Teacher Dashboard - Students</h2>
+            {error && <p className="error-text">{error}</p>}
+            <table className="students-table">
                 <thead>
-                    <tr className="bg-gray-200">
-                        <th className="border p-2">First Name</th>
-                        <th className="border p-2">Last Name</th>
-                        <th className="border p-2">Email</th>
-                        <th className="border p-2">Grade</th>
-                        <th className="border p-2">Mobile Number</th>
-                        <th className="border p-2">Actions</th>
+                    <tr className="students-table-header">
+                        <th className="students-table-cell">First Name</th>
+                        <th className="students-table-cell">Last Name</th>
+                        <th className="students-table-cell">Email</th>
+                        <th className="students-table-cell">Grade</th>
+                        <th className="students-table-cell">Mobile Number</th>
+                        <th className="students-table-cell">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     {students.length > 0 ? (
                         students.map((student) => (
-                            <tr key={student._id} className="text-center border">
-                                <td className="border p-2">{student.firstName}</td>
-                                <td className="border p-2">{student.lastName}</td>
-                                <td className="border p-2">{student.email}</td>
-                                <td className="border p-2">{student.grade}</td>
-                                <td className="border p-2">{student.mobileNumber}</td>
-                                <td className="border p-2">
+                            <tr key={student._id} className="students-table-row">
+                                <td className="students-table-cell">{student.firstName}</td>
+                                <td className="students-table-cell">{student.lastName}</td>
+                                <td className="students-table-cell">{student.email}</td>
+                                <td className="students-table-cell">{student.grade}</td>
+                                <td className="students-table-cell">{student.mobileNumber}</td>
+                                <td className="students-table-cell">
                                     <button
                                         onClick={() => handleViewStudent(student._id)}
-                                        className="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-700"
+                                        className="view-button"
                                     >
                                         View
                                     </button>
@@ -60,12 +65,14 @@ function TeacherDashboard() {
                         ))
                     ) : (
                         <tr>
-                            <td colSpan="6" className="text-center p-4">No students found</td>
+                            <td colSpan="6" className="no-students-text">No students found</td>
                         </tr>
                     )}
                 </tbody>
             </table>
         </div>
+        </div>
+
     );
 }
 

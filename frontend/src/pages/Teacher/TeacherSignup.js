@@ -23,19 +23,28 @@ import { useNavigate } from 'react-router-dom';
     };
 
     return (
-        <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">Teacher Signup</h2>
-            {error && <p className="text-red-500">{error}</p>}
-            <form onSubmit={handleSubmit} className="space-y-4">
-                <input type="text" name="firstName" placeholder="First Name" className="w-full p-2 border rounded" onChange={handleChange} required />
-                <input type="text" name="lastName" placeholder="Last Name" className="w-full p-2 border rounded" onChange={handleChange} required />
-                <input type="email" name="email" placeholder="Email" className="w-full p-2 border rounded" onChange={handleChange} required />
-                <input type="password" name="password" placeholder="Password" className="w-full p-2 border rounded" onChange={handleChange} required />
-                <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded">Sign Up</button>
+        <div className="reg-container">
+            <div className="reg-form-container">
+            {error && <p className="reg-error">{error}</p>}
+            <form onSubmit={handleSubmit} className="reg-form">
+            <h2 className="reg-title">Teacher Signup</h2>
+            <div className="reg-form-container">
+                <input type="text" name="firstName" placeholder="First Name" className="reg-input" onChange={handleChange} required />
+                </div>
+                <div className="reg-form-container">
+                <input type="text" name="lastName" placeholder="Last Name" className="reg-input" onChange={handleChange} required />
+                </div>
+                <div className="reg-form-container">
+                <input type="email" name="email" placeholder="Email" className="reg-input" onChange={handleChange} required />
+                </div><div className="reg-form-container">
+                <input type="password" name="password" placeholder="Password" className="reg-input" onChange={handleChange} required />
+                </div>
+                <button type="submit" className="reg-btn">Sign Up</button>
             </form>
-            <p className="register-link">Already have an account? 
-        <span onClick={() => navigate('/login')} className="register-link-text">Login here</span>
-      </p>
+            </div>
+            <p className="reg-link">Already have an account? 
+              <span onClick={() => navigate('/login')} className="reg-link-text">Login here</span>
+            </p>
         </div>
     );
 }

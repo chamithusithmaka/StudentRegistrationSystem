@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import '../../css/StudentLogin.css'
 
  function TeacherLogin() {
     const [formData, setFormData] = useState({ email: '', password: '' });
@@ -24,15 +25,22 @@ import { useNavigate } from 'react-router-dom';
     };
 
     return (
-        <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">Teacher Login</h2>
-            {error && <p className="text-red-500">{error}</p>}
-            <form onSubmit={handleSubmit} className="space-y-4">
-                <input type="email" name="email" placeholder="Email" className="w-full p-2 border rounded" onChange={handleChange} required />
-                <input type="password" name="password" placeholder="Password" className="w-full p-2 border rounded" onChange={handleChange} required />
-                <button type="submit" className="w-full bg-green-500 text-white py-2 rounded">Login</button>
+        <div className="login-container">
+            <h2 className="login-title">Teacher Login</h2>
+            {error && <p className="login-error">{error}</p>}
+            <form onSubmit={handleSubmit} className="login-form">
+            <div className="login-input-group">
+                <input type="email" name="email" placeholder="Email" className="login-input" onChange={handleChange} required />
+                </div>
+                <div className="login-input-group">
+                <input type="password" name="password" placeholder="Password" className="login-input" onChange={handleChange} required />
+                </div>
+                <div className="login-input-group">
+                <button type="submit" className="login-btn">Login</button>
+                </div>
+                
             </form>
-            <p>Don't have an account? <a href="/signup">Sign up</a></p>
+            <p className="login-link">Don't have an account? <a href="/signup">Sign up</a></p>
         </div>
     );
 }

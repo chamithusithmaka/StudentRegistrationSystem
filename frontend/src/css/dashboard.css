@@ -1,0 +1,84 @@
+.logout {
+    margin: 20px;
+    background-color: #c9290d; /* Red color */
+    color: white;
+    padding: 6px 16px;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.logout:hover {
+    background-color: red;
+}
+
+.logout-link {
+    color: white; /* Ensure the text color is white */
+    text-decoration: none; /* Remove underline */
+}
+
+.logout-link:hover {
+    color: white; /* Keep the color the same when hovered */
+}
+
+.teacher-dashboard {
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 24px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.teacher-dashboard-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.error-text {
+    color: #f87171; /* Red color for error message */
+}
+
+.students-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.students-table-header {
+    background-color: #f3f4f6; /* Light gray */
+}
+
+.students-table-cell {
+    border: 1px solid #d1d5db; /* Light gray border */
+    padding: 8px;
+    text-align: center;
+}
+
+.students-table-row {
+    text-align: center;
+    border: 1px solid #d1d5db;
+}
+
+.view-button {
+    background-color: #3b82f6; /* Blue color */
+    color: white;
+    padding: 6px 16px;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.view-button:hover {
+    background-color: #2563eb; /* Darker blue on hover */
+}
+
+.no-students-text {
+    text-align: center;
+    padding: 16px;
+    color: #6b7280; /* Text color for no students */
+}

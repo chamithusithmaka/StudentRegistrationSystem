@@ -130,6 +130,14 @@ const StudentProfile = () => {
         }
     };
 
+    const handleLogout = () => {
+        // Clear user authentication details if stored (e.g., remove from localStorage)
+        localStorage.removeItem("authToken");
+
+        // Redirect to login page
+        navigate("/login");
+    };
+
     // Upload profile picture
     const handleProfilePictureUpload = async (e) => {
         const file = e.target.files[0];
@@ -277,6 +285,9 @@ const StudentProfile = () => {
                 </button>
                 </div>
             </div>
+            <button className="prof-logout-btn" onClick={handleLogout}>
+                Logout
+            </button>
             </div>
 
     );

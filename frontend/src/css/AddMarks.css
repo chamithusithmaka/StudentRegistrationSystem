@@ -1,0 +1,109 @@
+.addMarks-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .addMarks-back-btn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    margin: 10px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+
+  .addMarks-back-btn:hover{
+    background: #f93434
+  }
+
+  
+  .addMarks-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .addMarks-form {
+    width: 100%;
+  }
+  
+  .addMarks-error {
+    color: red;
+    background: #ffe6e6;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .addMarks-select-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .addMarks-select {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .addMarks-select select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .addMarks-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .addMarks-field {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .addMarks-field input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .addMarks-category {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+  }
+  
+  .addMarks-category input {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .addMarks-submit-btn {
+    width: 100%;
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .addMarks-submit-btn:disabled {
+    background: #ccc;
+  }
+  

@@ -1,0 +1,79 @@
+.up-container {
+    width: 50%;
+    margin: 40px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .up-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .up-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .up-form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .up-label {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  
+  .up-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .up-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  .up-button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .up-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .up-btn-update {
+    background: #007bff;
+    color: white;
+  }
+  
+  .up-btn-update:hover {
+    background: #0056b3;
+  }
+  
+  .up-btn-cancel {
+    background: #6c757d;
+    color: white;
+  }
+  
+  .up-btn-cancel:hover {
+    background: #5a6268;
+  }
+  

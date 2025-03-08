@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import '../css/marks.css';
 
 const StudentMarks = () => {
   const { id } = useParams();
-  const navigate = useNavigate(); // Replacing useHistory with useNavigate
+  const navigate = useNavigate();
   const [marks, setMarks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -30,35 +31,42 @@ const StudentMarks = () => {
     navigate(`/add-marks/${id}`);
   };
 
-  // Handle delete operation
   const handleDelete = async (markId) => {
     try {
       await axios.delete(`http://localhost:5000/marks/delete/${markId}`);
-      setMarks(marks.filter(mark => mark._id !== markId)); // Remove the deleted mark from the state
+      setMarks(marks.filter(mark => mark._id !== markId));
     } catch (err) {
       setError('Unable to delete mark');
     }
   };
 
-  // Handle update operation
   const handleUpdate = (markId) => {
-    navigate(`/update-mark/${markId}`); // Use navigate to redirect to the update page
+    navigate(`/update-mark/${markId}`);
+  };
+
+  const handleBack = () => {
+    navigate('/profile');
   };
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Student Academic Information</h1>
+    <div className="marks-main-container">
+      <button className="marks-back-btn" onClick={handleBack}>Back</button>
+    <div className="marks-container">
+      <h1 className="marks-title">Student Academic Information</h1>
+      
+      
+
       {marks.length === 0 ? (
-        <p>No academic information available.</p>
+        <p className="marks-no-info">No academic information available.</p>
       ) : (
         <div>
           {marks.map((mark, index) => (
-            <div key={index} className="mb-4 p-4 border border-gray-300 rounded-md">
-              <h2 className="text-xl font-semibold">Year: {mark.year} - {mark.term}</h2>
-              <div className="grid grid-cols-2 gap-4 mt-2">
+            <div key={index} className="marks-card">
+              <h2 className="marks-year-term">Year: {mark.year} - {mark.term}</h2>
+              <div className="marks-grid">
                 <div>
                   <p><strong>Mathematics:</strong> {mark.marks.mathematics}</p>
                   <p><strong>Science:</strong> {mark.marks.science}</p>
@@ -73,26 +81,17 @@ const StudentMarks = () => {
                   <p><strong>Third Category Subject:</strong> {mark.marks.thirdCategorySubject.subjectName} - {mark.marks.thirdCategorySubject.marks}</p>
                 </div>
               </div>
-              <div className="mt-4 flex justify-between">
-                <button
-                  onClick={() => handleUpdate(mark._id)}
-                  className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-                >
-                  Update
-                </button>
-                <button
-                  onClick={() => handleDelete(mark._id)}
-                  className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
-                >
-                  Delete
-                </button>
-                
+              <div className="marks-actions">
+                <button onClick={() => handleUpdate(mark._id)} className="marks-update-btn">Update</button>
+                <button onClick={() => handleDelete(mark._id)} className="marks-delete-btn">Delete</button>
               </div>
             </div>
           ))}
         </div>
       )}
-      <button className="btn btn-primary" onClick={handleAddMarks}>Add Marks</button>
+      
+      <button className="marks-add-btn" onClick={handleAddMarks}>Add Marks</button>
+    </div>
     </div>
   );
 };
